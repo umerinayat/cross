@@ -13,6 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::create('plans', function (Blueprint $table) {
+            $table->id();
+            $table->string("type");
+            $table->integer("total_gb");
+            $table->integer("price");
+            $table->timestamps();
+        });
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -21,6 +29,8 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
+            $table->foreignId('plan_id')->nullable();
+            $table->foreign("plan_id")->references("id")->on("plans");
             $table->rememberToken();
             $table->timestamps();
         });

@@ -24,6 +24,8 @@ class SocialController extends Controller
         try {
             $getInfo = Socialite::driver($provider)->user();
 
+            session(['avatar' => $getInfo->avatar ?? null]);
+
             $user = $this->createUser($getInfo, $provider);
     
             auth()->login($user);

@@ -62,9 +62,9 @@ body {
 }
 
 .login-btn {
-    background-color: #9640e9;
+    background-color: rgb(255, 253, 253);
     font-size: 26px;
-    color: #fff;
+    color: #000;
     width: 280px;
     height: 60px;
     margin-top: 200px;
@@ -72,8 +72,8 @@ body {
 }
 
 .login-btn:hover {
-    background-color: #7e1fd1;
-    color: #fff;
+    background-color: #ccc;
+    color: #000;
 }
 
 /* 2. Content */
@@ -333,31 +333,40 @@ left-col
     top: 40px;
     width: 34%;
     z-index: 0;
+    background-color: rgb(204, 170, 170) !important;
+
 }
 .cross-bar-2 {
     right: 0;
     top: 41px;
     width: 100%;
     z-index: 0;
+    background-color: rgb(204, 170, 170) !important;
+
 }
 .cross-bar-3 {
     right: 0;
-    top: 140px;
+    top: 160px;
     width: 30%;
     z-index: 0;
+    background-color: rgb(204, 170, 170) !important;
+
 }
 .cross-body-bar-1 {
     right: 57vh;
     top: -1vh;
     width: 7%;
     z-index: 0;
-    background-color: #963fe8;
+    background-color: rgb(187, 176, 176);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .cross-body-bar-2 {
     right: 45vh;
     top: 0vh;
     width: 45%;
     z-index: 0;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .bg-purp {
     background-color: #963fe8;

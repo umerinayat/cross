@@ -13,7 +13,7 @@
             <div><strong>Basic</strong></div>
             <div><strong>Residential Proxies</strong></div>
             <div class="mt-3">
-                <ul class="li-left-border-one ">
+                <ul class="li-left-border-one">
                     <li class=" z-index">- Perfect for raffle botting</li>
                     <li class=" z-index">- Average speed of 500ms </li>
                     <li class=" z-index">- Supporting over 100+ countries</li>
@@ -22,15 +22,15 @@
             </div>
             <div class="row mt-4">
                 <div class="col-sm-6">
-                    <select class="basic-select" name="" id="">
-                        <option value="1GB">1GB</option>
-                        <option value="2GB">2GB</option>
-                        <option value="3GB">3GB</option>
-                        <option value="4GB">4GB</option>
+                    <select class="basic-select" name="" id="basicSelect">
+                   
+                        @foreach($basic_plans as $plan)
+                            <option value="{{ $plan->id . '-' . $plan->price }}"> {{ $plan->total_gb }}GB </option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <strong>€7</strong>
+                    <strong>€<span id="basicPrice">7</span></strong>
                     <button id="basicPlanPurchaseBtn" style="background: #89F2D3" class="btn btn-sm ml-2">
                         Purchase
                     </button>
@@ -59,15 +59,14 @@
             </div>
             <div class="row mt-4">
                 <div class="col-sm-6">
-                    <select class="basic-select" name="" id="">
-                        <option value="1GB">1GB</option>
-                        <option value="2GB">2GB</option>
-                        <option value="3GB">3GB</option>
-                        <option value="4GB">4GB</option>
+                    <select class="basic-select" name="" id="premiumSelect">
+                        @foreach($premium_plans as $plan)
+                            <option value="{{ $plan->id . '-' . $plan->price }}"> {{ $plan->total_gb }}GB </option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <strong>€13</strong> <button style="background-color: #9441E9;color:#fff" class="btn btn-sm ml-2">Purchase</button>
+                <strong>€<span id="premiumPrice">13</span></strong> <button style="background-color: #9441E9;color:#fff" class="btn btn-sm ml-2">Purchase</button>
                 </div>
             </div>
         </div>
@@ -309,4 +308,36 @@
     });
 </script>
 <!-- END of Stripe hanlde payment intent and client secret & user subscription-->
+
+
+<script>
+
+    // handle basic and premium plans selection
+    $basicSelect = $('#basicSelect');
+    $premiumSelect = $('#premiumSelect');
+    $basicPrice = $('#basicPrice');
+    $premiumPrice = $('#premiumPrice');
+
+    function getIdAndPrice(value) {
+        let split = value.split('-');
+        const idPrice = {id: split[0], price: split[1]}
+        return idPrice;
+    }
+
+    $basicSelect.on('change', function(event) {
+       let value = $(this).val();
+       let { id, price } = getIdAndPrice(value);
+       $basicPrice.text(price);
+    });
+
+    $premiumSelect.on('change', function(event) {
+       let value = $(this).val();
+       let { id, price } = getIdAndPrice(value);
+       $premiumPrice.text(price);
+    });
+
+
+
+</script>
+
 @endpush

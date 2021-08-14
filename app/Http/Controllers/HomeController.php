@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = [];
+
+        $data["basic_plans"] = Plan::where("type", "Basic")->get();
+        $data["premium_plans"] = Plan::where("type", "Premium")->get();
+        
+        return view('home', $data);
     }
 }

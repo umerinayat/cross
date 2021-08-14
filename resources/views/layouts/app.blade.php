@@ -41,7 +41,7 @@
             <div class="cross-user-control">
                 <!-- <img src="./cross-logo.png" class="cross-user-avatar" alt=""> -->
                 <div>
-                    <img src="http://skote-v-light.react.themesbrand.com/static/media/avatar-1.3921191a.jpg" class="cross-user-avatar" alt="">
+                    <img src="{{ Session::get('avatar') }}" class="cross-user-avatar" alt="">
                 </div>
                 <div style="padding-left: 10px;">
                     <span style="line-height: 11px;">Welcome back,</span><br>
